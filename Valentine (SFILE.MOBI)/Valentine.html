@@ -1,0 +1,89 @@
+<html><meta charset='UTF-8'/><meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/><meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script><link href="https://valentine.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" /><script src="https://valentine.likeadream.repl.co/script.js"></script>
+<head>
+</head>
+<body><div id="bodyblur"><img src="pantai.jpg" width="100%" height="100%"/></div>
+
+<!-- Isi Konten --><div id='Content'>
+<div class="image"><img src="https://i.postimg.cc/C1Gd38bQ/heart-happy.gif" width="130px" height="130px"/></div><!--<div id="sp1"></div>-->
+<div><blockquote><p id="text"></p><p id="text2"></p><p id="text3"></p></blockquote></div></div>
+
+<script>
+  function nonFo() {document.getElementById('idfoto').style.display = "none";} function showFo() {document.getElementById('idfoto').style.display = "block";}
+  function nonDiv() {document.getElementById('Content').style.display = "none";} function showDiv() {ketik();document.getElementById('Content').style.opacity = "1";document.getElementById('Content').style.margin = "0";document.getElementById('Content').style.animation = "kont 3s infinite";}
+  
+  var i=0,text;text = "";
+  var u=0,text2;text2 = "";
+  var o=0,text3;text3 = "";
+  
+  function ketik() {if(i<text.length){document.getElementById("text").innerHTML += text.charAt(i);i++;setTimeout(ketik,100);}
+    if(i==text.length){document.getElementById("text").innerHTML = text + emotnama;ketikk();}
+  }
+  function ketikk() {if(u<text2.length){document.getElementById("text2").innerHTML += text2.charAt(u);u++;setTimeout(ketikk,200);}
+    if(u==text2.length){ketikkk();}
+  }
+  function ketikkk() {if(o<text3.length){document.getElementById("text3").innerHTML += text3.charAt(o);o++;setTimeout(ketikkk,300);}
+    if(o==text3.length){document.getElementById("text3").innerHTML = text3 + emotnama2;
+    }
+  }
+  </script>
+
+<script type="text/javascript">
+
+            const swals = Swal.mixin({allowOutsideClick: false, cancelButtonColor: '#FF0040',});
+            const swalsy = Swal.mixin({confirmButtonText: 'Iya', allowOutsideClick: false,});
+            const swalst = Swal.mixin({allowOutsideClick: false, showConfirmButton: false, timer: 1500, timerProgressBar: true,});
+            
+            async function mulaitanya(){
+            	var { isConfirmed: tanyawal } = await swals.fire({title: `Mau isi nama dulu atau langsung aja?`, imageUrl: 'https://i.postimg.cc/0j2LDLxP/heart-happy.gif', imageWidth: 120, imageHeight: 120, confirmButtonText: 'Isi Nama', cancelButtonText: 'Langsung Aja', allowOutsideClick: false, showCancelButton: true,
+                });if(tanyawal){mulai();play();} else {nama = 'yang terlopee';pilihwarna();play();}
+            }
+
+            async function mulai(){
+                var { value: nama } = await swals.fire({
+                    title: 'Masukin nama kamu',
+                    input: 'text',
+                    imageUrl: 'https://i.postimg.cc/vDFQZzhM/yyy.gif', imageWidth: 120, imageHeight: 120,
+                    allowOutsideClick: false,
+                    showCancelButton: false,
+                });
+                if(nama && nama.length < 11){
+                	window.nama = nama;
+                    pilihwarna();
+                } else {
+                    await swals.fire('Ups!', 'Nama tidak boleh kosong atau lebih dari 10 karakter, ya!');
+                    mulai();
+                }
+            }
+            
+             async function pilihwarna() {
+             	text = "Untukk, " + nama + ".    ";
+                 emotnama = "&#10084;";
+                 emotnama2 = "";
+             	var { isConfirmed: tanyadua } = await swals.fire({
+                   title: nama + ` yu pilih warna duluu`, 
+                   imageUrl: 'https://i.postimg.cc/wjjjjvm7/saltobears.gif', imageWidth: 120, imageHeight: 120, 
+                   confirmButtonText: 'Ungu', cancelButtonText: 'Merah', allowOutsideClick: false, showCancelButton: true,
+                });if(tanyadua){kata1();kuis();} else {kata2();kuis();}
+             }
+             function kata1(){
+             	text2 = "waa ga kerasa banget gasi taun ini 2 taunn, semogaa langgeng terus yaa, Happy Mennsive, " + nama + "!       ";
+                 text3 = "Selama ini maaf yaa kalo aku suka nyusahin wkwk, Love You! " + nama + "!)       ";
+             }
+             function kata2(){
+             	text2 = "Happy Mennsive ke 15 maniez, ga kerasa banget yaa uda bulan ke 15 kita bareng-bareng, maaf bangett kalo aku suka nyusahin sama suka ngajak ribu, but i love youu!       ";
+                 text3 = "Sekali lagi Happy Mennsive!, " + nama + "!       ";
+                 document.getElementById('text3').style = "font-weight:700";
+             }
+             async function kuis(){
+            	      await swalst.fire({
+                      title: 'Hai, ' + nama + '!', 
+                      imageUrl: 'https://i.postimg.cc/02wF21b1/peach-goma.gif', imageWidth: 120, imageHeight: 120,
+                      });
+                      showDiv();
+             }
+             mulaitanya();
+</script>
+</body>
+</html>
